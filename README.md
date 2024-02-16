@@ -9,7 +9,7 @@ Docker compose used to setup two docker images.
 This repository includes scripts to push Docker images to your DockerHub repository and clean up deployment on local machine(optional).
 
 *******************
-![](https://github.com/odennav/wordpress-docker/blob/master/wordpress_sample_page.jpeg) 
+![](https://github.com/odennav/wordpress-docker-compose/blob/master/wordpress_sample_page.jpeg) 
 
 ## Special Credits
 
@@ -59,11 +59,11 @@ The provided Vagrant file simplifies VM management.
    bash docker-compose-deploy.sh
    ```
 8. **Check your Dockerhub repository to confirm docker images were uploaded**
-![](https://github.com/odennav/wordpress-docker/blob/master/dockerhub%20desktop.jpeg)
+![](https://github.com/odennav/wordpress-docker-compose/blob/master/dockerhub%20desktop.jpeg)
 
 
 9. **Open Wordpress setup page on web browser with url `localhost:8000`**
-![](https://github.com/odennav/wordpress-docker/blob/master/wordpress_setup_page.jpeg)
+![](https://github.com/odennav/wordpress-docker-compose/blob/master/wordpress_setup_page.jpeg)
 
 
 ## Clean Up Deployment(Optional)
