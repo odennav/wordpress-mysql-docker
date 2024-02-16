@@ -37,7 +37,7 @@ The provided Vagrant file simplifies VM management.
    Clone this repository to your local machine to obtain the scripts and the Vagrant file.
 
    ```bash
-   git clone https://github.com/odennav/wordpress-docker.git
+   git clone https://github.com/odennav/wordpress-docker-compose.git
    cd wordpress-docker
    ```
 
