@@ -1,5 +1,5 @@
 # Deploying the Wordpress website and Mysql
-Automate launch of installation page for wordpress with mysql with bash scripts.
+Automate launch of installation page for wordpress and mysql with bash scripts.
 
 ## Overview
 
