@@ -1,5 +1,5 @@
-# Deploying the Wordpress website and Mysql
-Automate launch of installation page for wordpress and mysql with bash scripts.
+# Deploying the Wordpress website and Mysql DB
+Automate launch of installation page for wordpress and mysql with bash scripts in a Test environment.
 
 ## Overview
 
@@ -23,7 +23,7 @@ The provided Vagrant file simplifies VM Management.
    - If you intend to use git bash with Windows and not linux VM, install chocolatey [here](https://chocolatey.org/install).
 
    - Open powershell terminal and use chocolatey to install git bash .
-   ```bash
+   ```console
    choco install git
    ```
 
@@ -34,12 +34,12 @@ The provided Vagrant file simplifies VM Management.
    - Install Docker Engine by following the instructions [here](https://docs.docker.com/desktop/install/linux/).
 
 3. **Spin up VM:**
-   ```bash
+   ```console
    vagrant up cool
    ```
 
 4. **Access the VM:**
-   ```bash
+   ```console
    vagrant ssh cool
    ```
 
@@ -78,6 +78,7 @@ The provided Vagrant file simplifies VM Management.
    ```bash
    bash clean_up.sh 
    ```
+
 ## Contribution Guidelines
    If you have your own scripts or improvements, feel free to contribute! Suggestions and enhancements are welcome.
 
