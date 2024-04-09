@@ -66,11 +66,11 @@ The provided Vagrant file simplifies VM Management.
    bash docker-compose-deploy.sh
    ```
 9. **Check your Dockerhub repository to confirm docker images were uploaded**
-![](https://github.com/odennav/wordpress-docker-compose/blob/master/dockerhub%20desktop.jpeg)
+![](https://github.com/odennav/wordpress-docker-compose/blob/master/docs/dockerhub%20desktop.jpeg)
 
 
 10. **Open Wordpress setup page on web browser with url `localhost:8000`**
-![](https://github.com/odennav/wordpress-docker-compose/blob/master/wordpress_setup_page.jpeg)
+![](https://github.com/odennav/wordpress-docker-compose/blob/master/docs/wordpress_setup_page.jpeg)
 
 
 ## Clean Up Deployment(Optional)
