@@ -1,85 +1,103 @@
-# Deploying the Wordpress website and Mysql DB
-Automate launch of installation page for wordpress and mysql with bash scripts in a Test environment.
+# Deploy the Wordpress website with Mysql DB
 
-## Overview
-
-Automate deployment of the Wordpress website with Mysql server using Docker compose.
-Docker compose used to setup two docker images.
-This repository includes scripts to push Docker images to your DockerHub repository and clean up deployment on local machine(optional).
+Automate launch of installation page for `Wordpress` and `Mysql` with bash scripts in a Test environment.
 
 
 ## Getting Started
 
-To enhance your learning experience, virtual machines (VMs) have been configured for you to run and test the scripts using [Vagrant](https://www.vagrantup.com/).
-The provided Vagrant file simplifies VM Management.
 
-1. **Install Vagrant:**
-   If you haven't installed Vagrant, download it [here](https://www.vagrantup.com/downloads.html)
-   and follow the installation instructions for your OS.
+Install [Terraform](https://developer.hashicorp.com/terraform/install) in your local machine
 
-2. **Install Docker:**
+Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in your local machine
 
-   **For Windows:**
-   - If you intend to use git bash with Windows and not linux VM, install chocolatey [here](https://chocolatey.org/install).
+```bash
+sudo apt install curl unzip
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
+```
 
-   - Open powershell terminal and use chocolatey to install git bash .
-   ```console
-   choco install git
-   ```
+Confirm the AWS CLI installation
+```bash
+aws --version
+```
 
-   - Install Docker Desktop by following the instructions [here](https://docs.docker.com/desktop/install/windows/).
+Clone this repository in your local machine
+```bash
+cd /
+git clone git@github.com:odennav/wordpress-mysql-docker.git
+```
 
+Execute these Terraform commands sequentially in your local machine to create the AWS VPC(Virtual Private Cloud) and EC2 instances.
 
-   **For Linux:**
-   - Install Docker Engine by following the instructions [here](https://docs.docker.com/desktop/install/linux/).
+Initializes terraform working directory
+```bash
+cd wordpress-mysql-docker/terraform
+terraform init
+```
 
-3. **Spin up VM:**
-   ```console
-   vagrant up cool
-   ```
+Validate the syntax of the terraform configuration files
+```bash
+terraform validate
+```
 
-4. **Access the VM:**
-   ```console
-   vagrant ssh cool
-   ```
+Create an execution plan that describes the changes terraform will make to the infrastructure
+```bash
+terraform plan
+```
 
-5. **Clone the Repository:**
-    Clone this repository to your Linux VM to get the scripts and the Vagrant file. First install git in VM.
+Apply the changes described in execution plan
+```bash
+terraform apply -auto-approve
+```
 
-   ```bash
-   sudo apt-get install git
-   git clone https://github.com/odennav/wordpress-docker-compose.git
-   cd wordpress-docker-compose
-   ```
+Check AWS console for instances created and running
 
-6. **Practice with the Scripts:**
+**SSH access**
 
-   Open a script file with a text editor of your choice, and type out every line of code for hands-on learning and to understand how it works
+Use `.pem` key from AWS to SSH into the public EC2 instance. IPv4 address of public EC2 instance will be shown in terraform outputs.
+```bash
+ssh -i private-key/terraform-key.pem ec2-user@<ipaddress>
+```
+   
+Clone this repository to the `docker build` machine provisioned and install git in VM.
 
-7. **Download HTML template from Tooplate.com and extract webfiles to working directory**:
-   ```bash
-   bash get_html.sh
-   ```
+```bash
+sudo apt-get install git
+git clone https://github.com/odennav/wordpress-myswl-docker.git
+cd docker-card-site
+```
 
-8. **Automate deployment of highway website run with docker containers**:
-   ```bash
-   bash docker-compose-deploy.sh
-   ```
-9. **Check your Dockerhub repository to confirm docker images were uploaded**
+Download HTML template from `Tooplate` and extract webfiles to working directory
+```bash
+cd bash-scripts/
+bash get_html.sh
+```
+Run script to stand up the docker containers
+```bash
+cd bash-scripts/
+bash docker-compose-deploy.sh
+```
+
+-----
+Check your Dockerhub repository to confirm docker images were uploaded
+
 ![](https://github.com/odennav/wordpress-docker-compose/blob/master/docs/dockerhub%20desktop.jpeg)
 
+-----
+Open Wordpress setup page on web browser with url `localhost:8000`
 
-10. **Open Wordpress setup page on web browser with url `localhost:8000`**
 ![](https://github.com/odennav/wordpress-docker-compose/blob/master/docs/wordpress_setup_page.jpeg)
 
+-----
 
-## Clean Up Deployment(Optional)
-   **Delete docker images and containers used to host nginx website**:
-   ```bash
-   bash clean_up.sh 
-   ```
+### Clean Up Deployment(Optional)
 
-## Contribution Guidelines
-   If you have your own scripts or improvements, feel free to contribute! Suggestions and enhancements are welcome.
+Delete docker images and containers used to host the website
+```bash
+cd bash-scripts/
+bash clean_up.sh 
+```
+-----
 
 Enjoy!
